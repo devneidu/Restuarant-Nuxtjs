@@ -3,6 +3,8 @@
     --main-yellow: #FFB401;
     --grey-100: #FAFAFA;
     --grey-200: #BFBFBF;
+    --dark-100: #111c27;
+    --dark-200: #BFBFBF;
     --overlay: rgba(0,0,0,0.65);
     --dark-green: #0BC38F;
     --light-green: #F3FBF8;
@@ -19,7 +21,7 @@
 .light-search-bar:focus{
     border: 1px solid var(--grey-200) !important
 }
-.light-app-body {
+.light-app-body, .dark-app-body {
     flex: 1;
     overflow: auto;
 }
@@ -30,12 +32,21 @@
     background: var(--mian-orange) !important;
     color: #fff !important
 }
+.dark-app-body{
+    background: #192734
+}
+.dark-app-card, .dark-app-header, .dark-app-footer, .dark-search-bar{
+    background: #263A4E
+}
 
 /* UTILITIES CSS */
 ul{
     list-style: none;
     padding: 0;
     margin: 0
+}
+.text-black{
+    color: #000000
 }
 .text-grey-1{
     color: var(--grey-100)
@@ -48,6 +59,12 @@ ul{
 }
 .bg-grey-2{
     background: var(--grey-200)
+}
+.bg-dark-1{
+    background: var(--dark-100)
+}
+.bg-dark-2{
+    background: var(--dark-200)
 }
 .text-orange{
     color: var(--mian-orange)
@@ -296,7 +313,7 @@ input:focus{
     border-bottom: 1px solid rgba(0,0,0,.125);
     border-left: 0 !important;
     border-right: 0 !important;
-    padding: .3em 0 !important
+    padding: .5em !important
 }
 .switch {
     position: relative;
@@ -490,4 +507,7 @@ input:focus{
 
 .nuxt-link-exact-active i{
     color: var(--mian-orange)
+}
+.checkoutInput {
+    border: 1px solid grey
 }

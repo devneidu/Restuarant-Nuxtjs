@@ -1,6 +1,9 @@
 
 export default {
   mode: 'universal',
+  router: {
+    middleware: 'ClearErrors'
+  },
   /*
   ** Headers of the page
   */
@@ -27,11 +30,35 @@ export default {
     '@/assets/css/style.css',
     '@/assets/css/fontawesome.css'
   ],
+  toast: {
+    position: 'bottom-center',
+    keepOnHover: true,
+    duration: 3000,
+    fullWidth: true,
+    fitToScreen: true,
+    iconPack: 'custom-class'
+  },
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '@/plugins/helpers/axios.js',
+    '@/plugins/mixins/toast.js',
+    '@/plugins/mixins/getUser.js',
+    '@/plugins/mixins/getErrors.js',
+    '@/plugins/mixins/appTheme.js',
   ],
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/login', method: 'post', propertyName: 'token' },
+          logout: { url: '/logout', method: 'get' },
+          user: { url: '/user', method: 'get', propertyName: 'data' }
+        }
+      }
+    }
+  },
   /*
   ** Nuxt.js dev-modules
   */
@@ -44,6 +71,8 @@ export default {
     // 'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/auth',
+    '@nuxtjs/toast'
   ],
   /*
   ** Axios module configuration

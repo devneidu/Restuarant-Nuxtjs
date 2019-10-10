@@ -1,8 +1,8 @@
 <template>
-    <div class="light-app-body">
+    <div   :class="[isLightTheme ? 'light-app-body' : 'dark-app-body']">
         <div class="content">
             <div class="container">
-                <input type="text" class="form-control search-bar br-0 light-search-bar shadow-sm">
+                <input type="text" class="form-control search-bar br-0 shadow-sm"  :class="[isLightTheme ? 'light-search-bar' : 'dark-search-bar']">
                 <span class="search-icon">
                     <i class="fa fa-search"></i>
                 </span>
@@ -20,7 +20,7 @@
                 <!-- FOOD SECTION -->
                 <div class="row mt-3">
                     <div class="col-12 mb-4">
-                        <div class="card shadow-md">
+                        <div class="card shadow-md" :class="[isLightTheme ? 'light-app-card' : 'dark-app-card']">
                             <img src="/a.jpg" alt="" class="img-fluid">
                             <div class="p-3">
                                     <div class="t-14 text-grey-2 item-title b-6">Lorem ipsum dolor sit amet consectetur.</div>
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="col-12 mb-4">
-                        <div class="card shadow-md">
+                        <div class="card shadow-md" :class="[isLightTheme ? 'light-app-card' : 'dark-app-card']">
                             <img src="/b.jpg" alt="" class="img-fluid">
                             <div class="p-3">
                                     <div class="t-14 text-grey-2 item-title b-6">Lorem ipsum dolor sit amet consectetur.</div>
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="col-12 mb-4">
-                        <div class="card shadow-md">
+                        <div class="card shadow-md" :class="[isLightTheme ? 'light-app-card' : 'dark-app-card']">
                             <img src="/c.jpg" alt="" class="img-fluid">
                             <div class="p-3">
                                     <div class="t-14 text-grey-2 item-title b-6">Lorem ipsum dolor sit amet consectetur.</div>
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="col-12 mb-4">
-                        <div class="card shadow-md">
+                        <div class="card shadow-md" :class="[isLightTheme ? 'light-app-card' : 'dark-app-card']">
                             <img src="/d.jpg" alt="" class="img-fluid">
                             <div class="p-3">
                                     <div class="t-14 text-grey-2 item-title b-6">Lorem ipsum dolor sit amet consectetur.</div>
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="col-12 mb-4">
-                        <div class="card shadow-md">
+                        <div class="card shadow-md" :class="[isLightTheme ? 'light-app-card' : 'dark-app-card']">
                             <img src="/a.jpg" alt="" class="img-fluid">
                             <div class="p-3">
                                     <div class="t-14 text-grey-2 item-title b-6">Lorem ipsum dolor sit amet consectetur.</div>

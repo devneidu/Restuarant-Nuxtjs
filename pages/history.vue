@@ -1,46 +1,46 @@
 <template>
-    <div class="light-app-body">
+    <div :class="[isLightTheme ? 'light-app-body' : 'dark-app-body']">
         <div class="content">
             <div class="container">
-                <h5 class="b-7 mb-3 text-dark">Order History</h5>
+                <h5 class="b-7 mb-3"   :class="[isLightTheme ? 'text-dark' : 'text-white']">Order History</h5>
                 <!-- <div class="alert alert-info">
                     <strong>You have no order</strong>
                 </div> -->
                         
                 <ul class="list-group br-0 history-list">
-                    <li class="list-group-item br-0 px-0 d-flex flex-column" data-toggle="modal" data-target="#myModal">
+                    <li class="list-group-item br-0 p-1 d-flex flex-column" data-toggle="modal" data-target="#myModal" :class="[isLightTheme ? 'light-app-card' : 'dark-app-card']">
                         <div class="d-flex justify-content-between t-13">
                             <span class="text-grey-2">
                                 July 2, 2019
                             </span>
-                            <span><i class="fa fa-chevron-right text-grey-2"></i></span>
+                            <span><i class="fa fa-chevron-right" :class="[isLightTheme ? 'text-grey-2' : 'text-white']"></i></span>
                         </div>
                         <div class="mt-2 d-flex justify-content-between">
-                            <span>#87239300</span>
+                            <span :class="[isLightTheme ? 'text-grey-2' : 'text-white']">#87239300</span>
                             <span class="text-orange t-18">&#8358;3800.00</span>
                         </div>
                     </li>
-                    <li class="list-group-item br-0 px-0 d-flex flex-column">
+                    <li class="list-group-item br-0 p-1 d-flex flex-column" data-toggle="modal" data-target="#myModal" :class="[isLightTheme ? 'light-app-card' : 'dark-app-card']">
                         <div class="d-flex justify-content-between t-13">
                             <span class="text-grey-2">
                                 July 2, 2019
                             </span>
-                            <span><i class="fa fa-chevron-right text-grey-2"></i></span>
+                            <span><i class="fa fa-chevron-right" :class="[isLightTheme ? 'text-grey-2' : 'text-white']"></i></span>
                         </div>
                         <div class="mt-2 d-flex justify-content-between">
-                            <span>#87239300</span>
+                            <span :class="[isLightTheme ? 'text-grey-2' : 'text-white']">#87239300</span>
                             <span class="text-orange t-18">&#8358;3800.00</span>
                         </div>
                     </li>
-                    <li class="list-group-item br-0 px-0 d-flex flex-column">
+                    <li class="list-group-item br-0 p-1 d-flex flex-column" data-toggle="modal" data-target="#myModal" :class="[isLightTheme ? 'light-app-card' : 'dark-app-card']">
                         <div class="d-flex justify-content-between t-13">
                             <span class="text-grey-2">
                                 July 2, 2019
                             </span>
-                            <span><i class="fa fa-chevron-right text-grey-2"></i></span>
+                            <span><i class="fa fa-chevron-right" :class="[isLightTheme ? 'text-grey-2' : 'text-white']"></i></span>
                         </div>
                         <div class="mt-2 d-flex justify-content-between">
-                            <span>#87239300</span>
+                            <span :class="[isLightTheme ? 'text-grey-2' : 'text-white']">#87239300</span>
                             <span class="text-orange t-18">&#8358;3800.00</span>
                         </div>
                     </li>

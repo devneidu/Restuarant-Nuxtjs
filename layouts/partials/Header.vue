@@ -1,5 +1,5 @@
 <template>
-    <div class="light-app-header app-header">
+    <div class="app-header"  :class="[isLightTheme ? 'light-app-header' : 'dark-app-header']">
         <div class="container">
             <div class="d-flex justify-content-between">
                 <div class="app-logo">

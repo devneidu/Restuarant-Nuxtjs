@@ -1,5 +1,5 @@
 <template>
-   <div class="body-content">
+   <div class="body-content"    :class="[isLightTheme ? 'light-app-body' : 'dark-app-body']">
        <div class="app-wrapper">
             <Header></Header>
             <transition name="page"  mode="out-in">
@@ -13,11 +13,29 @@
 <script>
 import Header from './partials/Header'
 import Footer from './partials/Footer'
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
     components: {
         Header,
         Footer
-    }
+    },
+    middleware: ['auth'],
+    data() {
+        return {
+            isLight: null
+        }
+    },
+    mounted() {
+        if(localStorage.getItem('appTheme')){
+            this.isLight = JSON.parse(localStorage.getItem('appTheme'))
+            this.$store.dispatch('changeTheme', this.isLight)
+        } else {
+            localStorage.setItem('appTheme', JSON.stringify(true))
+            this.$store.dispatch('changeTheme', true)
+        }
+    },
+
 }
 </script>
 

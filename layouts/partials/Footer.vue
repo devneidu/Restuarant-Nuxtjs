@@ -1,5 +1,5 @@
 <template>
-    <div class="light-app-footer app-footer">
+    <div class="app-footer"  :class="[isLightTheme ? 'light-app-footer' : 'dark-app-footer']">
         <nuxt-link to="/" class="t-24">
             <i class="fa fa-home text-grey-2"></i>
         </nuxt-link>
