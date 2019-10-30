@@ -5,9 +5,9 @@
                 <div class="app-logo">
                     <img src="/logo.png" alt="" height="50" width="50">
                 </div>
-                <div v-if="$route.name != 'checkout'" class="app-cart d-flex flex-row">
+                <div v-if="$route.name != 'checkout'" class="app-cart mt-2 d-flex flex-row">
                     <div><i class="fa text-grey-2 fa-shopping-cart"></i></div>
-                    <div class="cart-counter">5</div>
+                    <div class="cart-counter">{{$store.getters['cart/cartCount']}}</div>
                 </div>
             </div>
         </div>

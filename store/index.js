@@ -1,5 +1,5 @@
 export  const state = () => ({
-    isLightTheme: null
+    isLightTheme: true
 });
 
 export const getters = {

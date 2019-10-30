@@ -6,7 +6,7 @@ Vue.mixin({
             this.$toast.show(message, {
                 type: type,
                 icon: {
-                    name: 'fa fa-check',
+                    name: 'fa fa-' + icon,
                 }
             })
         }

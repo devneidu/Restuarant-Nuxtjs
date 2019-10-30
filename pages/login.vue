@@ -22,7 +22,7 @@
                     </transition>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-block br-0 bg-orange text-white b-7"><span v-if="isSubmit"><i class="fa fa-spin fa-spinner"></i></span> <span v-else>LOGIN</span></button>
+                    <button class="btn btn-block br-0 bg-orange text-white b-7" :disabled="isSubmit"><span v-if="isSubmit"><i class="fa fa-spin fa-spinner"></i></span> <span v-else>LOGIN</span></button>
                 </div>
                 
                 <div class="mt-2 text-center">
@@ -49,18 +49,17 @@ export default {
         async login() {
             this.isSubmit = true
             try {
-                let { data } = await this.$auth.loginWith('local', {
+                await this.$auth.loginWith('local', {
                     data: {
                         email: this.form.email,
                         password: this.form.password
                     }
                 })
-
+                this.toast('success', 'Successfully signed in!!!', 'key')
                 this.isSubmit = false
             } catch (error) {
                 this.isSubmit = false;
             }
-
         }
     }
 }

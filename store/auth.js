@@ -13,3 +13,15 @@ export const getters = {
         return state.loggedIn
     }
 }
+
+export const mutations = {
+    SET_DETAILS(state, payload) {
+        state.user = payload
+    }
+}
+
+export const actions = {
+    setDetails({commit}, payload){
+        commit('SET_DETAILS', payload)
+    }
+}

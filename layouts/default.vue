@@ -34,7 +34,14 @@ export default {
             localStorage.setItem('appTheme', JSON.stringify(true))
             this.$store.dispatch('changeTheme', true)
         }
-    },
+
+        if(localStorage.getItem('FoodieCart')){
+            this.$store.dispatch('cart/initiateCart', JSON.parse(localStorage.getItem('FoodieCart')))
+        } else {
+            this.$store.dispatch('cart/initiateCart', [])
+            localStorage.setItem('FoodieCart', JSON.stringify([]))
+        }
+    }
 
 }
 </script>

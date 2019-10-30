@@ -65,7 +65,7 @@
                     </label>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-block br-0 bg-orange text-white b-7"><span v-if="isSubmit"><i class="fa fa-spin fa-spinner"></i></span> <span v-else>REGISTER</span></button>
+                    <button class="btn btn-block br-0 bg-orange text-white b-7" :disabled="isSubmit"><span v-if="isSubmit"><i class="fa fa-spin fa-spinner"></i></span> <span v-else>REGISTER</span></button>
                 </div>
                 <div class="mt-2 text-center">
                     <nuxt-link to="/login" class="b-7">Already have an account?</nuxt-link>

@@ -16,6 +16,9 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/logo.ico' },
+    ],
+    script: [
+      {src: 'https://js.paystack.co/v1/inline.js', ssr: false},
     ]
   },
   /*
@@ -43,10 +46,13 @@ export default {
   */
   plugins: [
     '@/plugins/helpers/axios.js',
+    {src: '@/plugins/helpers/moment.js', ssr:false},
     '@/plugins/mixins/toast.js',
     '@/plugins/mixins/getUser.js',
     '@/plugins/mixins/getErrors.js',
     '@/plugins/mixins/appTheme.js',
+    '@/plugins/mixins/localStorage.js',
+    '@/plugins/mixins/paystack.js',
   ],
   auth: {
     strategies: {
@@ -55,9 +61,14 @@ export default {
           login: { url: '/login', method: 'post', propertyName: 'token' },
           logout: { url: '/logout', method: 'get' },
           user: { url: '/user', method: 'get', propertyName: 'data' }
-        }
+        },
       }
     }
+  },
+  redirect: {
+    login: '/login',
+    logout: '/',
+    home: '/'
   },
   /*
   ** Nuxt.js dev-modules
@@ -72,7 +83,10 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/auth',
-    '@nuxtjs/toast'
+    '@nuxtjs/toast',
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/dotenv',
+    '@nuxtjs/moment',
   ],
   /*
   ** Axios module configuration

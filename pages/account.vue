@@ -3,7 +3,7 @@
         <div class="content">
             <div class="container">
                 <div class="d-flex justify-content-end">
-                    <i class="fa fa-pen t-20 mr-3 text-info" data-toggle="modal" data-target="#myModal"></i>
+                    <i class="fa fa-pen t-20 mr-3 text-info" @click="showModal"></i>
                 </div>
                 <div class="text-center mt-5">
                     <img src="/profile.png" alt="" width="105" height="105">
@@ -56,7 +56,7 @@
                         <span :class="[isLightTheme ? 'text-black' : 'text-white']">Dark Theme</span>
                         <span>
                             <label class="switch mb-0">
-                                <input type="checkbox"  @change="setCurrentTheme" :checked="!checked">
+                                <input type="checkbox"  @change="setCurrentTheme" :checked="!isLightTheme">
                                 <span class="slider round"></span>
                             </label>
                         </span>
@@ -70,59 +70,20 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade pr-0" id="myModal">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header bg-dark-green text-white">
-                        <h4 class="modal-title">Edit Profile</h4>
-                    </div>
-            
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="" class="t-14 b-7">Name</label>
-                                <input type="text" name="name" class="form-control br-0">
-                            </div>
-                            <div class="form-group">
-                                <label for="" class="t-14 b-7">Email</label>
-                                <input type="email" name="email" class="form-control br-0">
-                            </div>
-                            <div class="form-group">
-                                <div>
-                                    <label for="" class="t-14 b-7">Gender</label>
-                                </div>
-                                <label class="radio-container">Male
-                                    <input type="radio" checked="checked" name="gender">
-                                    <span class="radiomark"></span>
-                                </label>
-                                <label class="radio-container">Female
-                                    <input type="radio" name="gender">
-                                    <span class="radiomark"></span>
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label for="" class="t-14 b-7">Address</label>
-                                <input type="text" name="address" class="form-control br-0">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger br-0" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary br-0" >Save Changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <EditProfile :userDetails="user"></EditProfile>
+        
     </div>
 </template>
 
 <script>
+import EditProfile from '@/components/EditProfile';
 import { mapGetters } from 'vuex'
 export default {
-    data() {
-        return {
-            lightTheme: true
-        }
+    asyncData({$axios}) {
+        $axios.get('/items')
+    },
+    components:{
+        EditProfile
     },
     methods:{
         logout() {
@@ -133,18 +94,31 @@ export default {
             }, 1500);
         },
         setCurrentTheme() {
-            this.lightTheme = !this.lightTheme
-            localStorage.setItem('appTheme', JSON.stringify(this.lightTheme));
-            this.$store.dispatch('changeTheme', this.lightTheme);
+            let check = !this.isLightTheme
+            localStorage.setItem('appTheme', JSON.stringify(check));
+            this.$store.dispatch('changeTheme', check);
+        },
+        showModal() {
+            this.$store.dispatch('validation/clearErrors')
+            this.$bvModal.show('editProfile');
         }
     },
     computed: {
         fullName() {
             return this.user.profile.last_name + ' ' + this.user.profile.first_name
         },
-        ...mapGetters({
-            checked: 'isLightTheme'
-        })
     }
 }
 </script>
+<style >
+    .error-enter-active, .error-leave-active{
+        transition: opacity .4s ease-in, transform .5s ease
+    }
+    .error-enter, .error-leave-to{
+        opacity: 0;
+        transform: translateY(-30px)
+    }
+    .error-enter-to, .error-leave{
+        opacity: 1;
+    }
+</style>
