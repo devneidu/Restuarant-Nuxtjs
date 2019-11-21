@@ -133,7 +133,8 @@ export default {
                 this.$store.dispatch('cart/selectStreet', 0)
                 this.$store.dispatch('cart/setPickUpTime', null)
                 this.$store.dispatch('cart/setOrderMethod', 'pick')
-                this.$router.push('/history')
+                // this.$router.push('/history')
+                window.location.href = 'history'
                 this.isLoading = false  
             }      
         },
@@ -155,8 +156,12 @@ export default {
         validate(){
             if(this.delivery_name == '' || this.delivery_address == '' ||  this.delivery_phone == ''){
                 this.checkoutError = true;
+                this.disable = false
+                this.isLoading = false
                 this.toast('error', 'Fields with (*) are important', 'times');
             } else if(this.pickedBySomeone && (this.picker_name == '' || this.picker_phone == '')){
+                this.disable = false
+                this.isLoading = false
                 this.checkoutError = true;
                 this.toast('error', 'Fields with (*) are important', 'times');
             }

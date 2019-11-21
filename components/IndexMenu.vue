@@ -2,7 +2,7 @@
     <div class="row mt-2">
         <div class="col-12 mb-4" v-for="(item, index) in allItems" :key="index">
             <div class="card shadow-md" :class="[isLightTheme ? 'light-app-card' : 'dark-app-card']">
-                <!-- <img :src="item.image" :alt="item.name" class="img-fluid"> -->
+                <img :src="item.image" :alt="item.name" class="img-fluid">
                 <div class="p-3">
                     <div class="t-14 text-grey-2 item-title b-6">{{item.name}}</div>
                     <div class="text-orange t-16 b-6 mt-2">&#8358; {{item.price}}</div>

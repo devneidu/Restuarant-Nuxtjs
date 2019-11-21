@@ -111,5 +111,8 @@ export const actions = {
     },
     async setPickUpTime({commit}, payload){
         await commit('SET_TIME', payload)
+    },
+    async cancelOrder({commit}, payload){
+        await this.$axios.post('orders/cancel', {reference: payload})
     }
 }

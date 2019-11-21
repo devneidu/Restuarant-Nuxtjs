@@ -12,11 +12,14 @@
         <div v-if="history" class="">
             <div class="d-flex justify-content-between">
                 <span class="text-grey-2">DATE</span>
-                <span class="text-grey-2">TYPE</span>
+                <span class="text-grey-2">ORDER TYPE</span>
             </div>
             <div class="d-flex justify-content-between mb-4">
-                <span class="b-6">DEC 20, 2019</span>
+                <span class="b-6">{{ $moment(history.date).format('YYYY-MM-DD HH:mm')}}</span>
                 <span class="b-6" style="text-transform: uppercase">{{history.type}}</span>
+            </div>
+            <div class="text-center my-3 t-18 b-7">
+                By {{history.payment_type}}
             </div>
             <div v-for="(item, index ) in history.items" :key="index" class="bg-light-green p-1 my-3 t-14">
                 <div class="d-flex justify-content-between">

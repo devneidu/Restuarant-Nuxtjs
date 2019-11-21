@@ -30,10 +30,6 @@ const paystack = {
                             ]
                         },
                         callback: function (response) {
-                            //after the transaction have been completed
-                            //make post call  to the server with to verify payment 
-                            //using transaction reference as post data
-                            
                             axios.post('/verify', {
                                 reference: trans_ref
                             }).then(({data}) => {
@@ -47,17 +43,17 @@ const paystack = {
                             }).catch(err => {
                                 
                             })
-
-                            // axios.post('/verify', )
                         },
                         onClose: function () {
-                            //when the user close the payment modal
                             alert('Transaction cancelled');
 
-                            store.dispatch("cart/cancel", reference)
+                            store.dispatch("cart/cancelOrder", trans_ref)
+                            setTimeout(() => {
+                                window.location.href = 'history'
+                            }, 500);
                         }
                     });
-                    handler.openIframe(); //open the paystack's payment modal
+                    handler.openIframe(); 
                 }
             }
         })

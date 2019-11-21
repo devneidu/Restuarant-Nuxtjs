@@ -5,8 +5,11 @@
             <span>#{{history.serial}}</span>
             <span class="text-orange">&#8358;{{history.total_amount}}</span>
         </h6>
-        <h6>
-            <span class="text-grey-2">July 2, 2019</span>
+        <h6 class=" d-flex justify-content-between">
+            <span class="text-grey-2">{{ $moment(history.date).format('YYYY-MM-DD HH:mm')}}</span>
+            <span v-if="history.status == 'Success'" class="text-success">{{history.status}}</span>
+            <span v-if="history.status == 'Cancelled'" class="text-danger">{{history.status}}</span>
+            <span v-if="history.status == 'Pending'" class="text-muted">{{history.status}}</span>
         </h6>
         <div class="text-center">
             <span @click="showHistory(history)" class="btn btn-sm  bg-dark-green text-white br-0">View</span>

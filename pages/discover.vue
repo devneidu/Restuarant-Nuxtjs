@@ -5,9 +5,8 @@
                 <h5 class="b-7 mb-3" :class="[isLightTheme ? 'text-dark' : 'text-white']">Recommended</h5>
                 <loading  v-if="recommended.length < 1" ></loading>
                 <recommended :recommended="recommended" v-else></recommended>
-                <h5 class="b-7 mb-3 mt-5" :class="[isLightTheme ? 'text-dark' : 'text-white']">Your Favourites</h5>
-                <loading  v-if="favourites.length < 1" ></loading>
-                <favourites v-else :favourites="favourites"></favourites>
+                <h5 v-if="favourites.length > 0" class="b-7 mb-3 mt-5" :class="[isLightTheme ? 'text-dark' : 'text-white']">Your Favourites</h5>
+                <favourites :favourites="favourites"></favourites>
             </div>
         </div>
     </div>

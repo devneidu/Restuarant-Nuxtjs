@@ -2,10 +2,10 @@
     <div :class="[isLightTheme ? 'light-app-body' : 'dark-app-body']">
         <div class="content">
             <div class="container">
-                <input type="text" class="form-control search-bar br-0 shadow-sm"  :class="[isLightTheme ? 'light-search-bar' : 'dark-search-bar']">
+                <!-- <input type="text" class="form-control search-bar br-0 shadow-sm"  :class="[isLightTheme ? 'light-search-bar' : 'dark-search-bar']">
                 <span class="search-icon">
                     <i class="fa fa-search"></i>
-                </span>
+                </span> -->
 
                 <!-- CATEGORIES --> 
                 <div v-if="categories.length < 1" class="linear-background"  :class="[isLightTheme ? 'light-app-loading' : 'dark-app-loading']"></div>
@@ -48,7 +48,7 @@ export default {
         onScroll() {
             this.$el.onscroll = () => {
                 if(this.$el.scrollHeight > this.$el.scrollTop && this.count < 70) {
-                    console.log(this.count++);
+                    // console.log(this.count++);
                 }
             }
         }
